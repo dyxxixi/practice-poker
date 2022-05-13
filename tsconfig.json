@@ -5,7 +5,11 @@
     "lib": [
       "es2016"
     ],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "strictNullChecks": true,
+    "noImplicitUseStrict": true,
+    "esModuleInterop": true,
+    "noEmitOnError": true,
   },
   "include": [
     "./src"
