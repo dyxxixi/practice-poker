@@ -2,8 +2,12 @@ import { Color, Mark } from "./enums"
 import { Card, Joker } from "./types"
 export class Deck {
   private cards: Card[] = []
-  constructor() {
-    this.init()
+  constructor(cards?: Card[]) {
+    if (cards) {
+      this.cards = cards
+    } else {
+      this.init()
+    }
   }
   private init() {
     const colors = Object.values(Color)
@@ -45,6 +49,31 @@ export class Deck {
       this.cards[randomIndex] = temp
     }
   }
+  /**
+   * 
+   * 发牌
+   */
+  deal(): [Deck, Deck, Deck, Deck] {
+    let player1: Deck, player2: Deck, player3: Deck, desk: Deck
+    player1 = this.touchCards(17)
+    player2 = this.touchCards(17)
+    player3 = this.touchCards(17)
+    desk = new Deck(this.cards)
+    return [player1, player2, player3, desk]
+  }
+
+  /**
+   * 摸牌
+   * @param n 
+   */
+  private touchCards(n: number): Deck {
+    const cards: Card[] = []
+    for (let i = 0; i < n; i++) {
+      cards.push(<Card>this.cards.shift())
+    }
+    return new Deck(cards)
+  }
+
   /**
    * 注：无法取到最大值
    * @param min 
