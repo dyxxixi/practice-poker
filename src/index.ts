@@ -1,4 +1,6 @@
-import { createDeck, printDeck } from "./funcs"
+import { Deck } from "./deck"
 
-const deck = createDeck()
-printDeck(deck)
+const deck = new Deck()
+deck.shuffle()
+deck.print()
+

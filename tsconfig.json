@@ -10,6 +10,7 @@
     "noImplicitUseStrict": true,
     "esModuleInterop": true,
     "noEmitOnError": true,
+    "strictPropertyInitialization": true
   },
   "include": [
     "./src"
